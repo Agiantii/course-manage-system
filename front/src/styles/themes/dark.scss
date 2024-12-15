@@ -1,0 +1,37 @@
+// Dark theme variables
+:root {
+  --el-bg-color: #1a1a1a;
+  --el-bg-color-overlay: #242424;
+  --el-text-color-primary: #ffffff;
+  --el-text-color-regular: #e0e0e0;
+  --el-border-color: #333333;
+  
+  // Custom theme colors
+  --primary-gradient: linear-gradient(45deg, #4a90e2, #67c23a);
+  --secondary-gradient: linear-gradient(45deg, #f56c6c, #e6a23c);
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --hover-bg: rgba(255, 255, 255, 0.1);
+}
+
+// Global dark theme styles
+body {
+  background-color: var(--el-bg-color);
+  color: var(--el-text-color-primary);
+}
+
+.el-card {
+  background: var(--card-bg);
+  border: 1px solid var(--el-border-color);
+  backdrop-filter: blur(10px);
+}
+
+.el-button {
+  &--primary {
+    background: var(--primary-gradient);
+    border: none;
+    
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}

@@ -1,0 +1,66 @@
+#
+##下面这些内容是为了让MyBatis映射
+##指定Mybatis的Mapper文件
+#mybatis.mapper-locations=classpath:mappers/*xml
+##指定Mybatis的实体目录
+#mybatis.type-aliases-package=org.example.backendcommon.mybatis.entity
+#
+## 应用服务 WEB 访问端口
+#server.port=9090
+#
+## sql
+#spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+#spring.datasource.url=jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8
+#spring.datasource.username=agiantii
+#spring.datasource.password=264919
+#
+##log 显示sql
+#spring.jpa.show-sql=true
+
+server:
+  port: 9090
+  servlet:
+    context-path: /api
+spring:
+  application:
+    name: agiantii-backend-common
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/sms?useUnicode=true&characterEncoding=utf8
+    username: user
+    password: 123
+  jpa:
+    show-sql: true
+# log config
+#logging:
+#  config: classpath:logback.xml
+
+
+
+# mybatis-plus log
+mybatis-plus:
+  configuration:
+    ### 开启打印sql配置
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+knife4j:
+  enable: true
+  openapi:
+
+    title: "sms接口文档"
+    description: "sms接口文档"
+    # aaa"
+    version: "1.0"
+    license: Apache 2.0
+    license-url: https://stackoverflow.com/
+    terms-of-service-url: https://localhost:9090/
+    group:
+      test1:
+        group-name: default
+        api-rule: package
+        api-rule-resources:
+          - com.agiantii.backend.controller
+    basic-auth:
+      name: agiantii
+
+

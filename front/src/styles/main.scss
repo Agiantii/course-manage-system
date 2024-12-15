@@ -1,0 +1,67 @@
+// 暗色主题变量
+:root {
+  --primary-bg: #1a1a1a;
+  --secondary-bg: #242424;
+  --primary-text: #ffffff;
+  --secondary-text: #a0a0a0;
+  --accent-color: #409EFF;
+  --danger-color: #F56C6C;
+  --success-color: #67C23A;
+  --border-color: #333333;
+}
+
+// 全局样式
+body {
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+// Element Plus 暗色主题覆盖
+.el-container {
+  background-color: var(--primary-bg);
+}
+
+.el-main {
+  background-color: var(--secondary-bg);
+}
+
+.el-card {
+  background-color: var(--secondary-bg);
+  border-color: var(--border-color);
+  
+  &__header {
+    border-bottom-color: var(--border-color);
+  }
+}
+
+// 自定义动画
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: fadeIn 0.3s ease-out;
+}
+
+// 通用类
+.page-container {
+  padding: 20px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.card-hover {
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+} 
