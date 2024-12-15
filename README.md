@@ -15,7 +15,33 @@
 - 🔄 RESTful API 设计规范
 
 [保留原有的开发视图 Mermaid 图]
+### 项目 部分效果图
 
+#### login 页面
+![login](assets/README/image.png)
+#### ADMIN系统
+
+![ADMIN系统首页](assets/README/image-1.png)
+
+![学生管理](assets/README/image-2.png)
+
+![教师管理](assets/README/image-3.png)
+
+![课程管理](assets/README/image-4.png)
+
+#### 学生系统
+![学生系统首页](assets/README/image-5.png)
+![选课中心](assets/README/image-6.png)
+![我的课程](assets/README/image-7.png)
+![成绩查询](assets/README/image-8.png)
+![个人信息](assets/README/image-9.png)
+
+#### 教师系统
+
+![教师首页](assets/README/image-10.png)
+![课程管理](assets/README/image-11.png)
+![成绩管理](assets/README/image-12.png)
+![个人信息](assets/README/image-13.png)
 ### 技术栈
 
 #### 后端技术
@@ -245,7 +271,7 @@ src/
 ```
 
 ## API 文档
-项目集成了 Swagger/Knife4j，启动后访问：http://localhost:8080/doc.html
+项目集成了 Swagger/Knife4j，启动后访问：http://localhost:9090/doc.html
 
 ## 部署说明
 1. 使用 `mvn clean package` 打包后端项目
