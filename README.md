@@ -35,19 +35,125 @@
 - Vue Router
 - Axios
 
+## 开发视图
+
+```mermaid
+graph LR
+    subgraph Login[登录模块]
+        L[登录页面] --> |认证| R{角色判断}
+    end
+
+    subgraph StudentSystem[学生系统]
+        R -->|学生| SD[学生首页]
+        SD --> SC[选课中心]
+        SD --> SM[我的课程]
+        SD --> SG[成绩查询]
+        SD --> SP[个人信息]
+        
+        SC -->|选课/退课| SM
+        SM -->|查看| SG
+    end
+
+    subgraph TeacherSystem[教师系统]
+        R -->|教师| TD[教师首页]
+        TD --> TC[课程管理]
+        TD --> TG[成绩管理]
+        TD --> TP[个人信息]
+        
+        TC -->|选择课程| TG
+    end
+
+    subgraph AdminSystem[管理员系统]
+        R -->|管理员| AD[管理首页]
+        AD --> AS[学生管理]
+        AD --> AT[教师管理]
+        AD --> AC[课程管理]
+        
+        AS -->|关联| AC
+        AT -->|关联| AC
+    end
+
+    style Login fill:#f9f,stroke:#333,stroke-width:2px
+    style StudentSystem fill:#bbf,stroke:#333,stroke-width:2px
+    style TeacherSystem fill:#bfb,stroke:#333,stroke-width:2px
+    style AdminSystem fill:#fbb,stroke:#333,stroke-width:2px
+```
+
+### 页面说明
+
+#### 学生模块
+- 首页：展示课程统计、学分统计等
+- 选课中心：浏览和选择可用课程
+- 我的课程：查看已选课程和课表
+- 成绩查询：查看各科成绩和绩点
+
+#### 教师模块
+- 首页：展示教学统计和课程概况
+- 课程管理：管理教授的课程
+- 成绩管理：录入和修改学生成绩
+
+#### 管理员模块
+- 首页：系统整体统计和监控
+- 用户管理：学生和教师账号管理
+- 课程管理：全局课程设置和管理
+
+
+
 ## 系统架构
 
-[保留原有的系统架构 Mermaid 图]
+```mermaid
+graph TB
+    subgraph Frontend[前端应用]
+        Router[路由管理]
+        Store[状态管理]
+        API[API接口]
+    end
+
+    subgraph Modules[功能模块]
+        Auth[认证模块]
+        Student[学生模块]
+        Teacher[教师模块]
+        Admin[管理员模块]
+    end
+
+    subgraph Features[核心功能]
+        Course[课程管理]
+        Score[成绩管理]
+        User[用户管理]
+    end
+
+    Frontend --> Modules
+    Modules --> Features
+
+    Auth --> |登录认证| Router
+    Auth --> |状态维护| Store
+    
+    Student --> |选课| Course
+    Student --> |查看成绩| Score
+    
+    Teacher --> |管理课程| Course
+    Teacher --> |录入成绩| Score
+    
+    Admin --> |管理用户| User
+    Admin --> |管理课程| Course
+    Admin --> |管理成绩| Score
+
+    API --> |HTTP请求| Backend((后端服务))
+```
+
 
 ## 角色权限
 
-[保留原有的角色权限表格]
+| 角色   | 权限描述                     |
+| ------ | ---------------------------- |
+| 学生   | 选课、查看课表、查询成绩     |
+| 教师   | 管理课程、录入成绩、查看统计 |
+| 管理员 | 管理用户、管理课程、系统管理 |
 
 ## 环境要求
 - JDK 1.8+
 - Maven 3.6+
-- MySQL 5.7+
-- Redis 6.0+
+- MySQL 8.0+
 - Node.js 16+
 
 ## 运行说明
