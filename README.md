@@ -171,6 +171,128 @@ graph TB
     API --> |HTTP请求| Backend((后端服务))
 ```
 
+## 表设计
+
+### ER图
+```mermaid
+erDiagram
+    t_course_and_student ||--o{ t_course : "has"
+    t_course_and_student ||--o{ t_student : "includes"
+    t_course_and_student ||--o{ t_teacher : "taught_by"
+
+    t_admin {
+        int id PK
+        varchar(255) name
+    }
+
+    t_course {
+        int id PK
+        int teacher_id FK
+        varchar(100) name
+        int credit
+        date term
+        int student_limit
+    }
+
+    t_score {
+        int course_id FK
+        int student_id FK
+        int teacher_id FK
+        int score
+        int id PK
+    }
+
+    t_student {
+        int id PK
+        varchar(255) name
+    }
+
+    t_teacher {
+        int id PK
+        varchar(255) name
+    }
+
+    t_user {
+        int id PK
+        varchar(255) password
+        varchar(30) role
+    }
+
+    t_course_and_student {
+        int course_id FK
+        int student_id FK
+        int teacher_id FK
+        int id PK
+    }
+
+    t_score ||--o{ t_course : "of"
+    t_score ||--o{ t_student : "by"
+    t_score ||--o{ t_teacher : "graded"
+
+```
+### 表结构
+以下是根据提供的 SQL 文件内容生成的 Markdown 格式的表结构文档：
+
+#### t_course_and_student 
+
+| 字段名     | 数据类型 | 可以为空 | 主键 | 索引 |
+| ---------- | -------- | -------- | ---- | ---- |
+| course_id  | int      | 否       | 是   | -    |
+| student_id | int      | 是       | 否   | -    |
+| teacher_id | int      | 是       | 否   | -    |
+| id         | int      | 否       | 是   | 否   |
+
+#### t_admin 
+
+| 字段名 | 数据类型     | 可以为空 | 主键 | 索引 |
+| ------ | ------------ | -------- | ---- | ---- |
+| id     | int          | 否       | 是   | 否   |
+| name   | varchar(255) | 是       | 否   | -    |
+
+#### t_course 
+
+| 字段名        | 数据类型     | 可以为空 | 主键 | 索引 |
+| ------------- | ------------ | -------- | ---- | ---- |
+| id            | int          | 否       | 是   | 否   |
+| teacher_id    | int          | 否       | 否   | 否   |
+| name          | varchar(100) | 否       | 否   | 否   |
+| credit        | int          | 否       | 否   | 否   |
+| term          | date         | 否       | 否   | 否   |
+| student_limit | int UNSIGNED | 否       | 否   | 否   |
+
+#### t_score 
+
+| 字段名     | 数据类型 | 可以为空 | 主键 | 索引 |
+| ---------- | -------- | -------- | ---- | ---- |
+| course_id  | int      | 否       | 否   | -    |
+| student_id | int      | 否       | 否   | -    |
+| teacher_id | int      | 否       | 否   | -    |
+| score      | int      | 否       | 否   | -    |
+| id         | int      | 否       | 是   | 否   |
+
+#### t_student
+
+| 字段名 | 数据类型     | 可以为空 | 主键 | 索引 |
+| ------ | ------------ | -------- | ---- | ---- |
+| id     | int          | 否       | 是   | 否   |
+| name   | varchar(255) | 是       | 否   | -    |
+
+#### t_teacher 
+
+| 字段名 | 数据类型     | 可以为空 | 主键 | 索引 |
+| ------ | ------------ | -------- | ---- | ---- |
+| id     | int          | 否       | 是   | 否   |
+| name   | varchar(255) | 是       | 否   | -    |
+
+#### t_user 
+
+| 字段名   | 数据类型     | 可以为空 | 主键 | 索引 |
+| -------- | ------------ | -------- | ---- | ---- |
+| id       | int          | 否       | 是   | 否   |
+| password | varchar(255) | 否       | 否   | -    |
+| role     | varchar(30)  | 是       | 否   | -    |
+
+
 
 ## 角色权限
 
