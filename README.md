@@ -2,7 +2,12 @@
 
 ## 项目简介
 一个前端基于 Vue 3 + Element Plus，后端基于 Spring Boot + MyBatis Plus 的现代化学生选课管理系统，支持学生选课、教师管理课程和成绩、管理员统一管理等功能。
-
+ps:
+- 前端 让 cursor 根据 [api-doc](./api-doc.md) 生成
+- 后端 自己简单 写了一些 crud
+- 文档也大部分由 cursor 编写
+## 项目 地址
+[gitee-repo](https://gitee.com/Agiantii/course-management-system.git)
 ## 功能特点
 
 - 🎨 现代化 UI 设计，支持暗色主题
@@ -14,7 +19,6 @@
 - 💾 MyBatis Plus 提供强大的 ORM 支持
 - 🔄 RESTful API 设计规范
 
-[保留原有的开发视图 Mermaid 图]
 ### 项目 部分效果图
 
 #### login 页面
