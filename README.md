@@ -50,12 +50,9 @@ ps:
 
 #### 后端技术
 - Spring Boot 2.x
-- Spring Security
 - MyBatis Plus
 - MySQL
-- Redis
-- Lombok
-- Swagger/Knife4j
+
 
 #### 前端技术
 - Vue 3
@@ -231,7 +228,7 @@ erDiagram
 
 ```
 ### 表结构
-以下是根据提供的 SQL 文件内容生成的 Markdown 格式的表结构文档：
+
 
 #### t_course_and_student 
 
@@ -314,7 +311,7 @@ erDiagram
 
 #### 1.1 数据库配置
 1. 创建数据库
-[sql文件](./sms.sql)
+[sql文件](./sql/sms.sql)
 
 2. 修改 `application.yml` 配置：
 ```yaml
